@@ -1,0 +1,53 @@
+	CharleighList list; //linked list to keep choices
+	if (dir == true) //if direction is horizontal
+	{
+		int left = pegs; //to keep pegs going to left
+		int right = pegs; //right
+		bool compare = true; //compare to array
+
+		if (placement >= 11 && placement <= 20) //if the placment value is between 11 and 20 on the gameboard
+		{
+			cout << "boat function: 11-20" << endl;//check
+			do
+			{
+				for (int count = 0; count < left - 1; count++) //take placement -1 going to the left first
+				{
+					placement--;
+					for (int id = 0; id < NUM_SPOT; id++) //compare with number in array using pointers to make sure it is not already being used.
+					{
+						cout << "*(arrPtr[id]" << *(arrPtr[id]) << endl;
+						if (placement == *(arrPtr[id]))
+						{
+							compare = false;
+						}
+					}
+					if (placement >= 11 && placement <= 20 && compare == true) //if placment - 1 is between 11 and 20 and it is not being used on game board
+					{
+						list.appendmode(placement); //add to linked list
+					}
+					left--;
+				}
+			} while (compare == true);
+			do
+			{
+				for (int count = 0; count < right - 1; count++) //take placement -1 going to the left first
+				{
+					placement--;
+					bool compare = true;
+					for (int id = 0; id < NUM_SPOT; id++) //compare with number in array using pointers to make sure it is not already being used.
+					{
+						cout << "*(arrPtr[id]" << *(arrPtr[id]) << endl;
+						if (placement == *(arrPtr[id]))
+						{
+							compare = false;
+						}
+					}
+					if (placement >= 11 && placement <= 20 && compare == true) //if placment - 1 is between 11 and 20 and it is not being used on game board
+					{
+						list.appendmode(placement); //add to linked list
+					}
+					right--;
+				}
+			} while (compare == true);
+		}
+	}
